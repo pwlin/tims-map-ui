@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TIMS Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./assets/styles/app.css">
+</head>
+
+<body>
+    <div ng-view id="main-container"></div>
+    <script type="text/javascript" src="./config.js"></script>
+    <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="./bower_components/x2js/xml2json.min.js"></script>
+    <script type="text/javascript" src="./bower_components/js-marker-clusterer/src/markerclusterer_compiled.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+    <script type="text/javascript" src="./services/datasource.js"></script>
+    <script type="text/javascript" src="./routes/map/map.js"></script>
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+</body>
+
+</html>

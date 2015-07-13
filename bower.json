@@ -1,0 +1,13 @@
+{
+  "name": "tims-map-ui",
+  "description": "A frontend app for showing TIMS data on a map.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/pwlin/tims-map-ui",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "js-marker-clusterer": "*"
+  }
+}
