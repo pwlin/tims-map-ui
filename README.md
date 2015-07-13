@@ -5,6 +5,7 @@ A frontend app for showing TIMS data on a map via [tims-api-server](https://gith
 
 Installation
 ------------
+- Make sure you already have [tims-api-server](https://github.com/pwlin/tims-api-server) up and running.
 - Clone the repo into a folder inside the root of your http server. Example: `http://localhost/tims-map-ui/`
 - Install all dependencies:
 
