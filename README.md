@@ -1,4 +1,4 @@
-TIMS API SERVER
+TIMS MAP UI
 ===============
 
 A frontend app for showing TIMS data on a map via [tims-api-server](https://github.com/pwlin/tims-api-server).
