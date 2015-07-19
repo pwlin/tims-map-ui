@@ -9,7 +9,7 @@ angular.module('myApp.map', ['ngRoute'])
     });
 }])
 
-.controller('MapCtrl', ['$scope', 'httpCommunication', function ($scope, dataSource) {
+.controller('MapCtrl', ['$scope', 'httpCommunication', function ($scope, httpCommunication) {
     $scope.mapTitle = 'Loading Data...';
     $scope.mapOptions = {
         zoom: 10,
