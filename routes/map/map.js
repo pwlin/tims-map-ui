@@ -9,21 +9,21 @@ angular.module('myApp.map', ['ngRoute'])
     });
 }])
 
-.controller('MapCtrl', ['$scope', 'dataSource', function ($scope, dataSource) {
+.controller('MapCtrl', ['$scope', 'httpCommunication', function ($scope, dataSource) {
     $scope.mapTitle = 'Loading Data...';
-    dataSource.get(config.API_URL + '/getAll?callback=JSON_CALLBACK', function (data) {
-        var mapOptions = {
-                zoom: 10,
-                center: new google.maps.LatLng(51.497093, -0.116772),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            },
-            infoWindow = new google.maps.InfoWindow({
-                maxWidth: 350
-            }),
-            marker,
-            markers = [],
-            map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    $scope.mapOptions = {
+        zoom: 10,
+        center: new google.maps.LatLng(51.497093, -0.116772),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    $scope.infoWindow = new google.maps.InfoWindow({
+        maxWidth: 350
+    });
+    $scope.map = new google.maps.Map(document.getElementById('map'), $scope.mapOptions);
+    $scope.markers = [];
 
+    httpCommunication.get(config.API_URL + '/disruptions?callback=JSON_CALLBACK', function (data) {
+        var marker;
         angular.forEach(data.Root.Disruptions[0].Disruption, function (value, key) {
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(parseFloat(value.CauseArea[0].DisplayPoint[0].Point[0].coordinatesLL[0].split(',')[1]), parseFloat(value.CauseArea[0].DisplayPoint[0].Point[0].coordinatesLL[0].split(',')[0])),
@@ -39,20 +39,17 @@ angular.module('myApp.map', ['ngRoute'])
                 }
             });
             google.maps.event.addListener(marker, 'click', function () {
-                infoWindow.setContent(this.infoWindowContent);
-                infoWindow.open(map, this);
+                $scope.infoWindow.setContent(this.infoWindowContent);
+                $scope.infoWindow.open($scope.map, this);
             });
-            markers.push(marker);
+            $scope.markers.push(marker);
         });
-
-        var markerCluster = new MarkerClusterer(map, markers, {
+        var markerCluster = new MarkerClusterer($scope.map, $scope.markers, {
             gridSize: 100,
             maxZoom: 15,
             averageCenter: true,
             minimumClusterSize: 5
         });
-
         $scope.mapTitle = 'TIMS Map';
-
     });
 }]);

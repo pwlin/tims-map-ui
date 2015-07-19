@@ -1,6 +1,6 @@
 angular.module('myApp.service', [])
 
-.factory('dataSource', ['$http', function ($http) {
+.factory('httpCommunication', ['$http', function ($http) {
     return {
         get: function (url, callback) {
             $http.jsonp(url)

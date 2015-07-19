@@ -1,7 +1,7 @@
 TIMS MAP UI
 ===============
 
-A frontend app for showing TIMS data on a map via [tims-api-server](https://github.com/pwlin/tims-api-server).
+A frontend app for showing London's live traffic disruptions data on a map via [tims-api-server](https://github.com/pwlin/tims-api-server).
 
 ![TIMS MAP UI Screenshot](http://i.imgur.com/b5P5IlR.png)
 
